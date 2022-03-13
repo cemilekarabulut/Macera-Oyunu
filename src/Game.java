@@ -11,7 +11,7 @@ public class Game {
     private Player player;
     private Location location;
 
-    public void start(){
+    public void start() {
         System.out.println("Welcome to the Adventure Game!");
         System.out.print("Tell us your name: ");
         String playerName = input.nextLine();
@@ -21,24 +21,29 @@ public class Game {
         System.out.println("Let's choose a character before you get started");
         player.selectChar();
         boolean isGameEnded = false;
-        while(!isGameEnded){
+        while (!isGameEnded) {
             player.printInfo();
             isGameEnded = selectLoc();
         }
     }
-    public boolean selectLoc(){
+
+    public boolean selectLoc() {
         Location location = null;
         SafeHouse safeHouse = new SafeHouse(player);
         Store store = new Store(player);
         System.out.println("Where to next?");
         safeHouse.printFeatures();
         store.printFeatures();
-        System.out.print("Enter a number 1-2 to select a place to go:");
+        System.out.println("0 - Exit the game");
+        System.out.print("Enter a number 0-2 to select a place to go:");
         int selectedLoc = input.nextInt();
-        if (selectedLoc == 2) {
-            location = store;
-        } else {
-            location = safeHouse;
+        switch (selectedLoc) {
+            case 0 -> {
+                System.out.println("Gave up? Your funeral.");
+                return true;
+            }
+            case 1 -> location = store;
+            case 2 -> location = safeHouse;
         }
         return !location.onLocation();
     }

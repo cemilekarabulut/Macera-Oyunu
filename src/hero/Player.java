@@ -1,9 +1,5 @@
 package hero;
 
-import place.Location;
-import place.SafeHouse;
-import place.Store;
-
 import java.util.Scanner;
 
 public class Player {
@@ -98,6 +94,6 @@ public class Player {
     }
 
     public void printInfo() {
-        System.out.println("Character: " + charName + " Damage Point: " + getDamage() + " Health: " + health + " Money: " + money);
+        System.out.println("Character: " + charName + " Damage Point: " + getDamage() + " Health: " + health + " Money: " + money + " Weapon: " + inventory.getWeapon().getName() + " Armor: " + inventory.getArmor().getName());
     }
 }
