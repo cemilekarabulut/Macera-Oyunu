@@ -1,4 +1,4 @@
-package place;
+package place.safezone;
 
 import hero.Player;
 import place.item.Armor;

@@ -1,4 +1,4 @@
-package place;
+package place.safezone;
 
 import hero.Player;
 

@@ -1,8 +1,9 @@
-package place;
+package place.safezone;
 
 import hero.Player;
+import place.Location;
 
-public abstract class NormalLocation extends Location{
+public abstract class NormalLocation extends Location {
 
 
     public NormalLocation(int id, Player player, String name) {
