@@ -5,6 +5,8 @@ public class Monster {
     private int damage;
     private int health;
     private int id;
+    private int award;
+    private int defaultHealth;
 
     public String getName() {
         return name;
@@ -38,10 +40,28 @@ public class Monster {
         this.id = id;
     }
 
-    public Monster(String name, int damage, int health, int id) {
+    public int getAward() {
+        return award;
+    }
+
+    public void setAward(int award) {
+        this.award = award;
+    }
+
+    public Monster(String name, int damage, int health, int id, int award) {
         this.name = name;
         this.damage = damage;
         this.health = health;
         this.id = id;
+        this.award = award;
+        this.defaultHealth = health;
+    }
+
+    public int getDefaultHealth() {
+        return defaultHealth;
+    }
+
+    public void setDefaultHealth(int defaultHealth) {
+        this.defaultHealth = defaultHealth;
     }
 }

@@ -9,7 +9,7 @@ public class Inventory {
 
     public Inventory() {
         this.weapon = new Weapon("Punch", 0, 0, 0);
-        this.armor = new Armor("No armor", 0, 0, 0);
+        this.armor = new Armor("Your prays to the God", 0, 0, 0);
     }
 
     public Armor getArmor() {

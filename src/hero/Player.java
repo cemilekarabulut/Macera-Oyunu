@@ -94,6 +94,6 @@ public class Player {
     }
 
     public void printInfo() {
-        System.out.println("Character: " + charName + " Damage Point: " + getDamage() + " Health: " + health + " Money: " + money + " Weapon: " + inventory.getWeapon().getName() + " Armor: " + inventory.getArmor().getName());
+        System.out.println("Character: " + charName + ", Damage Point: " + getDamage() + ", Health: " + health + ", Money: " + money + ", Weapon: " + inventory.getWeapon().getName() + ", Armor: " + inventory.getArmor().getName());
     }
 }

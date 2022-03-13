@@ -46,7 +46,7 @@ public class Game {
         System.out.println("0 - Exit the game");
         System.out.print("Enter a number 0-5 to select a place to go:");
         int selectedLoc = input.nextInt();
-        while (selectedLoc < 1 || selectedLoc > 5) {
+        while (selectedLoc < 0 || selectedLoc > 5) {
             System.out.print("Invalid choice. Make it again: ");
             selectedLoc = input.nextInt();
         }
