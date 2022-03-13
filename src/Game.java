@@ -55,8 +55,8 @@ public class Game {
                 System.out.println("Gave up? Your funeral.");
                 return true;
             }
-            case 1 -> location = store;
-            case 2 -> location = safeHouse;
+            case 1 -> location = safeHouse;
+            case 2 -> location = store;
             case 3 -> location = cave;
             case 4 -> location = forest;
             case 5 -> location = river;

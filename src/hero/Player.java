@@ -8,6 +8,7 @@ public class Player {
     private int damage;
     private int health;
     private int money;
+    private int defaultHealth;
     private Inventory inventory;
     private final Scanner input = new Scanner(System.in);
 
@@ -39,6 +40,7 @@ public class Player {
     }
 
     private void initPlayer(GameChar gameChar) {
+        this.setDefaultHealth(gameChar.getHealth());
         this.setCharName(gameChar.getCharName());
         this.setDamage(gameChar.getDamage());
         this.setHealth(gameChar.getHealth());
@@ -95,5 +97,13 @@ public class Player {
 
     public void printInfo() {
         System.out.println("Character: " + charName + ", Damage Point: " + getDamage() + ", Health: " + health + ", Money: " + money + ", Weapon: " + inventory.getWeapon().getName() + ", Armor: " + inventory.getArmor().getName());
+    }
+
+    public int getDefaultHealth() {
+        return defaultHealth;
+    }
+
+    public void setDefaultHealth(int defaultHealth) {
+        this.defaultHealth = defaultHealth;
     }
 }
