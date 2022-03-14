@@ -69,9 +69,11 @@ public abstract class BattleLoc extends Location {
     }
 
     private boolean enterCombat(int monsNum) {
+        Random r = new Random();
         for (int i = 0; i < monsNum && this.getPlayer().getHealth() > 0; i++) {
             System.out.println("Ready yourself. You have to fight with " + (monsNum - i) + " " + this.getMonster().getName());
             this.getMonster().setHealth(this.getMonster().getDefaultHealth());
+            int playerTurn = r.nextInt(2);
             while (this.getPlayer().getHealth() > 0 && this.getMonster().getHealth() > 0) {
                 printPlayerStats();
                 printMonsterStats();
@@ -79,11 +81,15 @@ public abstract class BattleLoc extends Location {
                 String selectCase = input.nextLine();
                 selectCase = selectCase.toUpperCase();
                 if (selectCase.equals("H")) {
-                    System.out.println("You hit!");
-                    monster.setHealth(this.getMonster().getHealth() - this.getPlayer().getDamage());
-                    if (this.getMonster().getHealth() > 0) {
+                    if (playerTurn == 0) {
+                        System.out.println("You hit!");
+                        monster.setHealth(this.getMonster().getHealth() - this.getPlayer().getDamage());
+                        playerTurn = 1;
+                    }
+                    if (playerTurn == 1 && this.getMonster().getHealth() > 0) {
                         System.out.println("Monster hit you!");
                         this.getPlayer().setHealth(this.getPlayer().getHealth() + this.getPlayer().getInventory().getArmor().getBlock() - this.getMonster().getDamage());
+                        playerTurn = 0;
                     }
                 } else {
                     System.out.println("You ran from the fight!");
