@@ -61,6 +61,7 @@ public abstract class BattleLoc extends Location {
                     return false;
                 }
                 System.out.println("Congrats, you defeat the monsters!");
+                this.getPlayer().getInventory().getRewards().add(this.getReward());
                 return true;
             }
         }
@@ -69,7 +70,7 @@ public abstract class BattleLoc extends Location {
 
     private boolean enterCombat(int monsNum) {
         for (int i = 0; i < monsNum && this.getPlayer().getHealth() > 0; i++) {
-            System.out.println("Ready yourself. You have to fight with " + monsNum + " " + this.getMonster().getName());
+            System.out.println("Ready yourself. You have to fight with " + (monsNum - i) + " " + this.getMonster().getName());
             this.getMonster().setHealth(this.getMonster().getDefaultHealth());
             while (this.getPlayer().getHealth() > 0 && this.getMonster().getHealth() > 0) {
                 printPlayerStats();

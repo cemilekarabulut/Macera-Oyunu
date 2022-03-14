@@ -57,10 +57,31 @@ public class Game {
             }
             case 1 -> location = safeHouse;
             case 2 -> location = store;
-            case 3 -> location = cave;
-            case 4 -> location = forest;
-            case 5 -> location = river;
+            case 3 -> {
+                if (!player.getInventory().getRewards().contains("Food")) {
+                    location = cave;
+                } else {
+                    System.out.println("You have Food. There is nothing to do in the Cave. Go somewhere else.");
+                    return false;
+                }
             }
+            case 4 -> {
+                if (!player.getInventory().getRewards().contains("Firewood")) {
+                    location = forest;
+                } else {
+                    System.out.println("You have Firewood. There is nothing to do in the Forest. Go somewhere else.");
+                    return false;
+                }
+            }
+            case 5 -> {
+                if (!player.getInventory().getRewards().contains("Water")) {
+                    location = river;
+                } else {
+                    System.out.println("You have Water. There is nothing to do in the River. Go somewhere else.");
+                    return false;
+                }
+            }
+        }
         return !location.onLocation();
     }
 }

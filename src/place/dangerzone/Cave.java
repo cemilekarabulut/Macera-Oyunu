@@ -1,7 +1,6 @@
 package place.dangerzone;
 
 import hero.Player;
-import place.enemy.Monster;
 import place.enemy.Zombie;
 
 public class Cave extends BattleLoc {
